@@ -12,12 +12,7 @@
             type="image/x-icon"
         />
         <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
-            rel="stylesheet"
-        />
+
         <!-- Font Awesome Script -->
         <script
             src="https://kit.fontawesome.com/3736305248.js"
@@ -32,6 +27,7 @@
         <!-- ---------------------Header--------------------- -->
         <header class="container homepage-header">
             <div class="navbar">
+                <!-- Logo Image -->
                 <i>
                     <img
                         class="logo-image"
@@ -39,20 +35,37 @@
                         alt=""
                     />
                 </i>
-                <i></i>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i>Favourites</i>
-            </div>
-            <div class="container">
-                <h1>Welcome</h1>
-                <h1>Welcome</h1>
-                <h1>Welcome</h1>
-                <h1>Welcome</h1>
+                <!-- Home Button -->
+                <a href="/index.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-house fav-btn"
+                            >&nbsp;Home&nbsp;</i
+                        >
+                    </button>
+                </a>
+                <a href="/favourite.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-heart fav-btn"
+                            >&nbsp;Favourites&nbsp;</i
+                        >
+                    </button></a
+                >
             </div>
         </header>
+
+        <!-- ---------------------Favourite Section--------------------- -->
+        <div class="favourite-characters">
+            <div class="flex-row cards-container" id="container">
+                <!--  -->
+                <!-- addtoFavBtn  -->
+                <!-- <button id = "addToFavBtn">Add to Favourites</button> -->
+                <!-- <button id = "addToFavBtn" style= "display: none">Added to Favourites</button> -->
+            </div>
+        </div>
         <!-- ---------------------Footer--------------------- -->
         <footer class="homepage-footer"></footer>
         <!-- External Script file -->
-        <script src="./script.js"></script>
+        <script src="./script/favouritesPage/Module.js"></script>
+        <script src="./script/favouritesPage/Script.js"></script>
     </body>
 </html>

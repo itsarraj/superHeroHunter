@@ -12,12 +12,7 @@
             type="image/x-icon"
         />
         <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
-            rel="stylesheet"
-        />
+
         <!-- Font Awesome Script -->
         <script
             src="https://kit.fontawesome.com/3736305248.js"
@@ -41,12 +36,20 @@
                     />
                 </i>
                 <!-- Home Button -->
-                <button class="btn fav-btn">
-                    <i class="fa-solid fa-house fav-btn"></i> &nbsp; Home
-                </button>
-                <button class="btn fav-btn">
-                    <i class="fa-solid fa-heart fav-btn"></i> &nbsp; Favourites
-                </button>
+                <a href="/index.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-house fav-btn"
+                            >&nbsp;Home&nbsp;</i
+                        >
+                    </button>
+                </a>
+                <a href="/favourite.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-heart fav-btn"
+                            >&nbsp;Favourites&nbsp;</i
+                        >
+                    </button></a
+                >
             </div>
         </header>
 
@@ -64,13 +67,13 @@
                         class="search-input"
                         autocomplete="off"
                     />
-                    <!-- ---------------------Suggestions Box--------------------- -->
-                    <ul class="autocomplete-box"></ul>
+                    <!-- ---------------------Search Button--------------------- -->
+                    <a class="btn search-btn" id="search-button"> Search </a>
                 </div>
-                <!-- ---------------------Search Button--------------------- -->
-                <a class="btn search-btn" id="search-button"> Search </a>
             </form>
         </section>
+        <!-- ---------------------Search Results Box--------------------- -->
+        <ul class="flex-row search-results" id="search-results"></ul>
 
         <!-- ---------------------SuperHero List--------------------- -->
         <section class="superhero-list">

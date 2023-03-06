@@ -1,0 +1,94 @@
+/* @font-face {
+    font-family: "Oswald", sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+}
+
+@font-face {
+    font-family: "Satisfy", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+}
+
+@font-face {
+    font-family: "Merienda", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&display=swap");
+}
+
+@font-face {
+    font-family: "Racing Sans One", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap");
+} */
+
+@font-face {
+    font-family: "Raleway", sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    background-color: #eaeff1;
+}
+
+img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+#container {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+
+.card {
+    background-color: white;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #bacdd8;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+
+.tag {
+    padding: 4px 10px;
+    border: 1px solid #e5eaed;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #788697;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.description {
+    font-size: 14px;
+    color: #7f8c9b;
+    line-height: 150%;
+}
+
+button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0077ff;
+    background-color: #e0efff;
+    margin: 0 auto;
+    display: block;
+    transition: all 200ms ease-in-out;
+}
+
+button:hover,
+button:focus {
+    background-color: #0077ff;
+    color: #e0efff;
+}
+
+.card__details {
+    padding: 16px 8px 8px 8px;
+}
