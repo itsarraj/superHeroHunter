@@ -4,52 +4,41 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Google Fonts -->
-        <!-- <style>
-            @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
-            @import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&display=swap");
-            @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
-            @import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap");
-        </style> -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet"
-        />
-
-        <style>
-            https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
-                @import url("");
-        </style>
-        <link rel="stylesheet" href="abc.css" />
         <title>Document</title>
+        <link rel="stylesheet" href="./abc.css" />
     </head>
     <body>
-        <!-- A div with container id to hold the card -->
-        <div id="container">
-            <!-- A div with card class for the card  -->
-            <div class="card">
-                <img
-                    src="./assets/images/img5.png"
-                    alt=""
-                    style="width: 100%"
-                />
-                <!-- A div with card__details class to hold the details in the card  -->
-                <div class="card__details">
-                    <!-- Span with tag class for the tag -->
-                    <span class="tag">Nature</span>
-                    <span class="tag">Lake</span>
-                    <!-- A div with name class for the name of the card -->
-                    <div class="name">Lago di Braies</div>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Consectetur sodales morbi dignissim sed diam pharetra
-                        vitae ipsum odio.
-                    </p>
-                    <button>Read more</button>
+        <div class="blog-slider">
+            <!-- A div with container id to hold the card -->
+            <div id="container">
+                <!-- A div with card class for the card  -->
+                <div class="card">
+                    <img src="./assets/images/img4.png" alt="" />
+                    <!-- A div with card__details class to hold the details in the card  -->
+                    <div class="card-container">
+                        <div class="card__details">
+                            <!-- Span with tag class for the tag -->
+                            <span class="tag">ID : ${hero.id}</span>
+                            <span class="tag">Events : 1</span>
+                            <span class="tag">Series :2</span>
+                            <span class="tag"
+                                >Stories : ${ hero.stories.available }</span
+                            >
+                            <!-- A div with name class for the name of the card -->
+                            <div class="name">${hero.name}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="favBtnNew" class="favBtnNew">
+                    <div class="cardi">
+                        <button id="addToFavBtn" onclick="showAddedToFav()">
+                            <i class="fa-solid fa-heart fav-icon"></i> &nbsp;
+                            Add to Favourites
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="abc.js"></script>
     </body>
 </html>

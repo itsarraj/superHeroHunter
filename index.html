@@ -29,11 +29,13 @@
             <div class="navbar">
                 <!-- Logo Image -->
                 <i>
-                    <img
-                        class="logo-image"
-                        src="assets/images/img7.png"
-                        alt=""
-                    />
+                    <a href="./index.html">
+                        <img
+                            class="logo-image"
+                            src="assets/images/img7.png"
+                            alt=""
+                        />
+                    </a>
                 </i>
                 <!-- Home Button -->
                 <a href="/index.html"
@@ -55,7 +57,7 @@
 
         <section class="search-section">
             <!-- ---------------------Search Form--------------------- -->
-            <form id="search-form" class="search-form">
+            <form id="search-form" class="search-form" onsubmit="return false">
                 <div class="search-box">
                     <!-- ---------------------Input--------------------- -->
                     <input
@@ -68,10 +70,13 @@
                         autocomplete="off"
                     />
                     <!-- ---------------------Search Button--------------------- -->
-                    <a class="btn search-btn" id="search-button"> Search </a>
+                    <a class="btn search-btn" id="search-button">
+                        Search For SuperHero
+                    </a>
                 </div>
             </form>
         </section>
+        <br />
         <!-- ---------------------Search Results Box--------------------- -->
         <ul class="flex-row search-results" id="search-results"></ul>
 
@@ -83,10 +88,13 @@
                  -->
             </div>
         </section>
+
+        <!-- ---------------------Know More Button List--------------------- -->
+        <!-- ---------------------SuperHero List--------------------- -->
+
         <!-- ---------------------Footer--------------------- -->
         <footer class="homepage-footer"></footer>
         <!-- External Script file -->
-        <script src="./script/index/Module.js"></script>
-        <script src="./script/index/Script.js"></script>
+        <script src="./script/index.js"></script>
     </body>
 </html>

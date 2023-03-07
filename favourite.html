@@ -19,7 +19,7 @@
             crossorigin="anonymous"
         ></script>
         <!-- CSS -->
-        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fav.css" />
 
         <!------ end of head ------>
     </head>
@@ -29,11 +29,13 @@
             <div class="navbar">
                 <!-- Logo Image -->
                 <i>
-                    <img
-                        class="logo-image"
-                        src="assets/images/img7.png"
-                        alt=""
-                    />
+                    <a href="./index.html">
+                        <img
+                            class="logo-image"
+                            src="assets/images/img7.png"
+                            alt=""
+                        />
+                    </a>
                 </i>
                 <!-- Home Button -->
                 <a href="/index.html"
@@ -53,19 +55,24 @@
             </div>
         </header>
 
-        <!-- ---------------------Favourite Section--------------------- -->
-        <div class="favourite-characters">
-            <div class="flex-row cards-container" id="container">
-                <!--  -->
-                <!-- addtoFavBtn  -->
-                <!-- <button id = "addToFavBtn">Add to Favourites</button> -->
-                <!-- <button id = "addToFavBtn" style= "display: none">Added to Favourites</button> -->
+        <!-- ---------------------fav Results Box--------------------- -->
+        <ul class="flex-row fav-results" id="fav-results"></ul>
+
+        <!-- ---------------------SuperHero List--------------------- -->
+        <section class="superhero-list">
+            <div class="superHeroCards">
+                <!--
+                    Superhero cards list using javascript
+                 -->
             </div>
-        </div>
+        </section>
+
+        <!-- ---------------------Know More Button List--------------------- -->
+        <!-- ---------------------SuperHero List--------------------- -->
+
         <!-- ---------------------Footer--------------------- -->
         <footer class="homepage-footer"></footer>
         <!-- External Script file -->
-        <script src="./script/favouritesPage/Module.js"></script>
-        <script src="./script/favouritesPage/Script.js"></script>
+        <script src="./script/favourite.js"></script>
     </body>
 </html>

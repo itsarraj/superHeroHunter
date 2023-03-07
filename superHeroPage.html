@@ -12,19 +12,15 @@
             type="image/x-icon"
         />
         <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
-            rel="stylesheet"
-        />
+
         <!-- Font Awesome Script -->
         <script
             src="https://kit.fontawesome.com/3736305248.js"
             crossorigin="anonymous"
         ></script>
         <!-- CSS -->
-        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/superHeroPage.css" />
+        <!-- <link rel="stylesheet" href="./css/index.css"> -->
 
         <!------ end of head ------>
     </head>
@@ -34,22 +30,49 @@
             <div class="navbar">
                 <!-- Logo Image -->
                 <i>
-                    <img
-                        class="logo-image"
-                        src="assets/images/img7.png"
-                        alt=""
-                    />
+                    <a href="./index.html">
+                        <img
+                            class="logo-image"
+                            src="assets/images/img7.png"
+                            alt=""
+                        />
+                    </a>
                 </i>
                 <!-- Home Button -->
-                <button class="btn fav-btn">
-                    <i class="fa-solid fa-house"></i> &nbsp; Home
-                </button>
-                <i>Favourites</i>
+                <a href="/index.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-house fav-btn"
+                            >&nbsp;Home&nbsp;</i
+                        >
+                    </button>
+                </a>
+                <a href="/favourite.html"
+                    ><button class="btn nav-btn">
+                        <i class="fa-solid fa-heart fav-btn"
+                            >&nbsp;Favourites&nbsp;</i
+                        >
+                    </button></a
+                >
             </div>
         </header>
+        <br />
+        <br />
+
+        <!-- --------------------- super List --------------------- -->
+        <div class="blog-slider">
+            <ul class="flex-row super-results" id="super-results"></ul>
+        </div>
+        <!-- display details -->
+
+        <!-- ---------------------SuperHero List--------------------- -->
+        <div id="addtoastx" class="addtoastx">
+            <h1>Succesfully! Added to Favourite</h1>
+        </div>
+
         <!-- ---------------------Footer--------------------- -->
+
         <footer class="homepage-footer"></footer>
         <!-- External Script file -->
-        <script src="./script.js"></script>
+        <script src="./script/superHeroPage.js"></script>
     </body>
 </html>
