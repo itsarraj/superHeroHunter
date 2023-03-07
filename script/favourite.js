@@ -1,3 +1,7 @@
+//--------( [ This is Javascript file of Favourite Page ] )--------
+
+//--------( Variable Declarations )--------
+
 var FavoriteIdArray = [localStorage.getItem("FavoriteIdArray")];
 localStorage.getItem("FavoriteIdArray");
 
@@ -9,12 +13,17 @@ if (JSON.parse(localStorage.getItem("FavoriteIdArray")) != null) {
 var JsonResult;
 localStorage.setItem("FavoriteIdArray", JSON.stringify(FavoriteIdArray));
 
+//--------( Function : To Refetch the Characters)--------
+
 function reStart() {
     FavoriteIdArray.forEach((element) => {
         fetchID(element);
     });
 }
 reStart();
+
+//--------(async Function : To Fetch Character as per id only )--------
+
 async function fetchID(idd) {
     try {
         await fetch(
@@ -31,8 +40,10 @@ async function fetchID(idd) {
     }
 }
 
+//--------(Function : To Render the DOM to Dispaly Favourite List )--------
+
 function showIDResults(APIdata) {
-    // favResults.innerHTML = "";
+    //--------( Finding if hero id is in fav list or not )--------
     APIdata.forEach((hero) => {
         var idid = true;
         if (FavoriteIdArray && FavoriteIdArray.length > 0) {
@@ -43,7 +54,7 @@ function showIDResults(APIdata) {
             });
         }
 
-        // Appending the element into DOM
+        //--------(Appending Html to Display Fav List)--------
         favResults.innerHTML += `<!-- A div with container id to hold the card -->
 
                 <div id="container">
@@ -98,48 +109,23 @@ function showIDResults(APIdata) {
 
                 </div>
                 `;
-
-        // //  Set Event listener for Learn  more button
-        // document
-        //     .getElementById("knowmorejs")
-        //     .addEventListener("click", function () {
-        //         console.log("click ", hero.id);
-        //         localStorage.setItem("id", hero.id);
-        //         window.location.assign("./superHeroPage.html");
-        //     });
-        // //  Set Event listenet for Fav  more button
-        // document
-        //     .getElementById("addToFavBtn")
-        //     .addEventListener("click", function () {
-        //         console.log("click ", hero.id);
-        //         var index = localStorage.length;
-        //         var data = JSON.stringify(APIdata);
-        //         localStorage.setItem(hero.id, data);
-        //     });
     });
 }
+
+//--------(Function : To Render Again the DOM )--------
 
 function renderAgain() {
     favResults.innerHTML = "";
     reStart();
 }
-// Function for attacthing eventListener to buttons
-// function addEvents() {
-//     let favouriteButton = document.querySelectorAll(".addToFavBtn");
-//     favouriteButton.forEach((btn) =>
-//         btn.addEventListener("click", handleDocumentClick())
-//     );
 
-//     // let characterInfo = document.querySelectorAll(".character-info");
-//     // characterInfo.forEach((character) =>
-//     //     character.addEventListener("click", addInfoInLocalStorage)
-//     // );
-// }
+//--------( Making event listener in global section )--------
+
 document.addEventListener("click", handleDocumentClick);
 function handleDocumentClick(e) {
     const eventTarget = e.target;
-    // FavIDafterClick
-    // add the fav
+
+    //--------(Conditions For Add Favourite Button )--------
 
     if (
         eventTarget.className === "addToFavBtn" &&
@@ -161,8 +147,7 @@ function handleDocumentClick(e) {
         renderAgain();
     }
 
-    // FavIDafterClick
-    // remove the fav
+    //--------(Conditions For Remove Favourite Button )--------
 
     if (
         eventTarget.className === "addToFavBtn" &&
@@ -180,11 +165,8 @@ function handleDocumentClick(e) {
         renderAgain();
     }
 
-    ////////////////////////////////////////////////////////////////
-    // Completed More Information PAge
-    ////////////////////////////////////////////////////////////////
+    //--------(Conditions For More Info Button )--------
 
-    //KnowMoreIDafterClick
     if (eventTarget.className === "knowmorejs") {
         console.log(
             e.target.parentElement.parentElement.parentElement.parentElement
@@ -199,6 +181,8 @@ function handleDocumentClick(e) {
     }
 }
 
+//--------(Function : To Remove the id of superHero , when Clicked on Remove From Favourite Button)--------
+
 function removeFavArray(FavoriteIdArray, heroid) {
     FavoriteIdArray.forEach((element) => {
         if (element == heroid) {
@@ -210,13 +194,4 @@ function removeFavArray(FavoriteIdArray, heroid) {
             }
         }
     });
-}
-
-//  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
-function showAddedToFav() {
-    let favBtn = document.getElementById("addtoast");
-    favBtn.className = "show";
-    setTimeout(function () {
-        favBtn.className = favBtn.className.replace("show", "");
-    }, 3000);
 }

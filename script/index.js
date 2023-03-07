@@ -1,14 +1,17 @@
+//--------( [ This is Javascript file of HomePage ] )--------
+
 // hash 334b09e4b9df89d3649360679b5e2988
 // let publicKey = "e1de55e77fe1473b015ecf2427a9e302";
 // let privateKey = "9e33edcbd45ebe99987c07b3fc60a09331b5e691";
 
 //----------------------------------------------------------------
-
+//----------------------------------------------------------------
 //Variable Declaration//
-// const searchInput = document.getElementById("search-input");
 const searchInput = document.getElementsByTagName("input")[0];
 const searchResults = document.getElementById("search-results");
 let FavoriteIdArray = [];
+//----------------------------------------------------------------
+//If LocalStorage is not Null Then Add Data from Local Storage to FavoriteIdArray//
 if (JSON.parse(localStorage.getItem("FavoriteIdArray")) != null) {
     FavoriteIdArray = JSON.parse(localStorage.getItem("FavoriteIdArray"));
 }
@@ -18,8 +21,8 @@ var JsonResult;
 searchInput.addEventListener("input", () =>
     fetchSuperHeroes(searchInput.value)
 );
-
-//Superhero Hunter App API Initialization
+//----------------------------------------------------------------
+//Fetching Superheros//
 async function fetchSuperHeroes(searchedValue) {
     if (searchedValue == "") {
         searchResults.innerHTML = "";
@@ -40,9 +43,7 @@ async function fetchSuperHeroes(searchedValue) {
     }
 }
 
-//----------------------------------------------------------------
-// Function: Create Random Character
-
+//--------(Function : Create Random Character)--------
 const rand = (() => {
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     const randomCharacter =
@@ -51,10 +52,11 @@ const rand = (() => {
         random: randomCharacter,
     };
 })();
-//calling fetchSuperHeroes with random characters to display a list of superHeroes at homepage without searching
-fetchSuperHeroes(rand.random);
-//----------------------------------------------------------------
 
+//--------(calling fetchSuperHeroes with random characters to display a list of superHeroes at homepage without searching)--------
+fetchSuperHeroes(rand.random);
+
+//--------(Function : Displaying Search Results && Homepage initial Results)--------
 function showSearchResults(APIdata) {
     searchResults.innerHTML = "";
     APIdata.forEach((hero) => {
@@ -66,7 +68,8 @@ function showSearchResults(APIdata) {
                 }
             });
         }
-        // Appending the element into DOM
+
+        //--------(Appending HTML in DOM)--------
         searchResults.innerHTML += `<!-- A div with container id to hold the card -->
 
                 <div id="container">
@@ -124,6 +127,8 @@ function showSearchResults(APIdata) {
     });
 }
 
+//--------(Function : To Render Again the DOM )--------
+
 function renderAgain() {
     searchResults.innerHTML = "";
     showSearchResults(JsonResult);
@@ -132,8 +137,8 @@ function renderAgain() {
 document.addEventListener("click", handleDocumentClick);
 function handleDocumentClick(e) {
     const eventTarget = e.target;
-    // FavIDafterClick
-    // add the fav
+
+    //--------(Conditions For Add Favourite Button )--------
 
     if (
         eventTarget.className === "addToFavBtn" &&
@@ -155,8 +160,7 @@ function handleDocumentClick(e) {
         renderAgain();
     }
 
-    // FavIDafterClick
-    // remove the fav
+    //--------(Conditions For Remove Favourite Button )--------
 
     if (
         eventTarget.className === "addToFavBtn" &&
@@ -174,11 +178,8 @@ function handleDocumentClick(e) {
         renderAgain();
     }
 
-    ////////////////////////////////////////////////////////////////
-    // Completed More Information PAge
-    ////////////////////////////////////////////////////////////////
+    //--------(Conditions For More Info Button )--------
 
-    //KnowMoreIDafterClick
     if (eventTarget.className === "knowmorejs") {
         console.log(
             e.target.parentElement.parentElement.parentElement.parentElement
@@ -193,6 +194,8 @@ function handleDocumentClick(e) {
     }
 }
 
+//--------(Function : To Remove the id of superHero , when Clicked on Remove From Favourite Button)--------
+
 function removeFavArray(FavoriteIdArray, heroid) {
     FavoriteIdArray.forEach((element) => {
         if (element == heroid) {
@@ -204,16 +207,4 @@ function removeFavArray(FavoriteIdArray, heroid) {
             }
         }
     });
-}
-
-//----------------------------------------------------------------
-//Function: for displaying a alert box type message //
-//----------------------------------------------------------------
-
-function showAddedToFav() {
-    let favBtn = document.getElementById("addtoast");
-    favBtn.className = "show";
-    setTimeout(function () {
-        favBtn.className = favBtn.className.replace("show", "");
-    }, 3000);
 }

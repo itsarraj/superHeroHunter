@@ -1,5 +1,10 @@
+//-------- ([ Super Hero Main Info Page ]) --------
+
 // Get Items that are stored in Local Storage
-//  I'll Get Items through ID (Bacause all have different Id's)
+//  Unique Id's
+
+//-------- ([ Variable Declaration  ]) --------
+
 var FavoriteIdArray = [localStorage.getItem("FavoriteIdArray")];
 localStorage.getItem("FavoriteIdArray");
 
@@ -12,9 +17,8 @@ localStorage.setItem("FavoriteIdArray", JSON.stringify(FavoriteIdArray));
 let superResults = document.getElementById("super-results");
 var resultId = localStorage.getItem("id");
 console.log(resultId);
-// Fetch Will be done!
-// fetchID();
-// Get all the data from Fetch
+
+//-------- ([ async function to fetch id and datas ]) --------
 
 async function fetchID(idd) {
     try {
@@ -32,8 +36,10 @@ async function fetchID(idd) {
     }
 }
 
+//--------(Function : To Render the DOM to Dispaly More Info )--------
+
 function showResultIdResults(APIdata) {
-    // if count <= 5 then only we display it in dom other results are discarded
+    //--------( Finding if hero id is in fav list or not )--------
     var idid = true;
     let hero = APIdata[0];
     if (FavoriteIdArray && FavoriteIdArray.length > 0) {
@@ -43,9 +49,15 @@ function showResultIdResults(APIdata) {
             }
         });
     }
+
+    //--------( )--------
+
     // getting the single hero
     // hero is the object that we get from API
     // Appending the element into DOM
+
+    //--------( )--------
+
     let superResults = document.getElementById("super-results");
     superResults.innerHTML += `
     <div class=" mainContainer flex-row hero-img-and-more-info">
@@ -94,35 +106,22 @@ function showResultIdResults(APIdata) {
                             }
                         </div>
                     </div>
-
-
     </div>
-
-
-
-
-
             `;
-
-    // let favBtn = document.getElementById("addtoastx");
-    // favBtn.className = "show";
-    // setTimeout(function () {
-    //     favBtn.className = favBtn.className.replace("show", "");
-    // }, 3000);
 }
 
+//--------( Calling the function to Fetch Id and display more info )--------
+
 fetchID(resultId);
+
+//--------( Making event listener in global section )--------
 
 document.addEventListener("click", handleDocumentClick);
 function handleDocumentClick(e) {
     const eventTarget = e.target;
-    // FavIDafterClick
-    // add the fav
-    console.log(
-        e.target.parentElement.parentElement.parentElement.parentElement
-            .children[0].children[1].children[0].children[1].children[1]
-            .innerHTML
-    );
+
+    //--------(Conditions For Add Favourite Button )--------
+
     if (
         eventTarget.className === "addToFavBtn" &&
         eventTarget.children[0].id == "adFAV"
@@ -144,8 +143,7 @@ function handleDocumentClick(e) {
         renderAgain();
     }
 
-    // FavIDafterClick
-    // remove the fav
+    //--------(Conditions For Remove Favourite Button )--------
 
     if (
         eventTarget.className === "addToFavBtn" &&
@@ -163,11 +161,9 @@ function handleDocumentClick(e) {
         );
         renderAgain();
     }
-
-    ////////////////////////////////////////////////////////////////
-    // Completed More Information PAge
-    ////////////////////////////////////////////////////////////////
 }
+
+//--------(Function : To Remove the id of superHero , when Clicked on Remove From Favourite Button)--------
 
 function removeFavArray(FavoriteIdArray, heroid) {
     FavoriteIdArray.forEach((element) => {
@@ -182,27 +178,7 @@ function removeFavArray(FavoriteIdArray, heroid) {
     });
 }
 
-//  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
-function showAddedToFav() {
-    let favBtn = document.getElementById("addtoast");
-    favBtn.className = "show";
-    setTimeout(function () {
-        favBtn.className = favBtn.className.replace("show", "");
-    }, 3000);
-}
-
-//  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
-
-function showAddedToFav2() {
-    let favSetup = document.getElementById("addtoastx");
-    favSetup.className = "show";
-    setTimeout(function () {
-        favSetup.className = favSetup.className.replace("addtoastx show", "");
-    }, 1500);
-    setTimeout(function () {
-        favSetup.className = favSetup.className.replace("", "addtoastx show");
-    }, 1500);
-}
+//--------(Function : To Render Again the DOM )--------
 
 function renderAgain() {
     superResults.innerHTML = "";
