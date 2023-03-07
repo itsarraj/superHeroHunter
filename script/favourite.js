@@ -42,6 +42,7 @@ function showIDResults(APIdata) {
                 }
             });
         }
+
         // Appending the element into DOM
         favResults.innerHTML += `<!-- A div with container id to hold the card -->
 
