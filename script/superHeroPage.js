@@ -48,7 +48,7 @@ function showResultIdResults(APIdata) {
     // Appending the element into DOM
     let superResults = document.getElementById("super-results");
     superResults.innerHTML += `
-    <div class="flex-row hero-img-and-more-info">
+    <div class=" mainContainer flex-row hero-img-and-more-info">
     <img id="portraitImage" class="hero-img" src="${
         hero.thumbnail.path +
         "/landscape_incredible." +
