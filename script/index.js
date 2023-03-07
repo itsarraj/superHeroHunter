@@ -121,24 +121,6 @@ function showSearchResults(APIdata) {
 
                 </div>
                 `;
-
-        // //  Set Event listener for Learn  more button
-        // document
-        //     .getElementById("knowmorejs")
-        //     .addEventListener("click", function () {
-        //         console.log("click ", hero.id);
-        //         localStorage.setItem("id", hero.id);
-        //         window.location.assign("./superHeroPage.html");
-        //     });
-        // //  Set Event listenet for Fav  more button
-        // document
-        //     .getElementById("addToFavBtn")
-        //     .addEventListener("click", function () {
-        //         console.log("click ", hero.id);
-        //         var index = localStorage.length;
-        //         var data = JSON.stringify(APIdata);
-        //         localStorage.setItem(hero.id, data);
-        //     });
     });
 }
 
@@ -146,18 +128,7 @@ function renderAgain() {
     searchResults.innerHTML = "";
     showSearchResults(JsonResult);
 }
-// Function for attacthing eventListener to buttons
-// function addEvents() {
-//     let favouriteButton = document.querySelectorAll(".addToFavBtn");
-//     favouriteButton.forEach((btn) =>
-//         btn.addEventListener("click", handleDocumentClick())
-//     );
 
-//     // let characterInfo = document.querySelectorAll(".character-info");
-//     // characterInfo.forEach((character) =>
-//     //     character.addEventListener("click", addInfoInLocalStorage)
-//     // );
-// }
 document.addEventListener("click", handleDocumentClick);
 function handleDocumentClick(e) {
     const eventTarget = e.target;
@@ -235,7 +206,10 @@ function removeFavArray(FavoriteIdArray, heroid) {
     });
 }
 
-//  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
+//----------------------------------------------------------------
+//Function: for displaying a alert box type message //
+//----------------------------------------------------------------
+
 function showAddedToFav() {
     let favBtn = document.getElementById("addtoast");
     favBtn.className = "show";
