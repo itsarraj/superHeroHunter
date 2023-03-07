@@ -1,5 +1,15 @@
 // Get Items that are stored in Local Storage
 //  I'll Get Items through ID (Bacause all have different Id's)
+var FavoriteIdArray = [localStorage.getItem("FavoriteIdArray")];
+localStorage.getItem("FavoriteIdArray");
+
+if (JSON.parse(localStorage.getItem("FavoriteIdArray")) != null) {
+    FavoriteIdArray = JSON.parse(localStorage.getItem("FavoriteIdArray"));
+}
+
+localStorage.setItem("FavoriteIdArray", JSON.stringify(FavoriteIdArray));
+
+let superResults = document.getElementById("super-results");
 var resultId = localStorage.getItem("id");
 console.log(resultId);
 // Fetch Will be done!
@@ -24,10 +34,17 @@ async function fetchID(idd) {
 
 function showResultIdResults(APIdata) {
     // if count <= 5 then only we display it in dom other results are discarded
-
+    var idid = true;
+    let hero = APIdata[0];
+    if (FavoriteIdArray && FavoriteIdArray.length > 0) {
+        FavoriteIdArray.forEach((id) => {
+            if (hero.id == id) {
+                idid = false;
+            }
+        });
+    }
     // getting the single hero
     // hero is the object that we get from API
-    let hero = APIdata[0];
     // Appending the element into DOM
     let superResults = document.getElementById("super-results");
     superResults.innerHTML += `
@@ -67,29 +84,25 @@ function showResultIdResults(APIdata) {
                          }</span></p>
                     </div>
     </div>
-    <div class = "flex-row"id="favBtnNew" class="favBtnNew">
-                    <div class="cardi">
-                        <button id = "addToFavBtn" class = "addToFavBtn" onclick="showAddedToFav2()"  >
-                                <i class="fa-solid fa-heart fav-icon"></i> &nbsp; Add to Favourites</button>
+  <div id="favBtnNew" class="favBtnNew">
+                        <div class="cardi">
+                            <button id = "addToFavBtn"  class = "addToFavBtn" >
+                            ${
+                                idid
+                                    ? '<i  id = "adFAV"  class="fa-solid fa-heart fav-icon remFavBtn"></i> &nbsp; Add to Favourites</button>'
+                                    : '<i id = "rmFAV" class="fa-solid fa-heart-circle-minus addToFavBtnBtn"></i> &nbsp; Remove from Favourites'
+                            }
+                        </div>
                     </div>
-                </div>
 
-            </div>
+
+    </div>
 
 
 
 
 
             `;
-
-    document
-        .getElementById("addToFavBtn")
-        .addEventListener("click", function () {
-            console.log("click ", hero.id);
-            var index = localStorage.length;
-            var data = JSON.stringify(APIdata);
-            localStorage.setItem(hero.id, data);
-        });
 
     // let favBtn = document.getElementById("addtoastx");
     // favBtn.className = "show";
@@ -99,6 +112,84 @@ function showResultIdResults(APIdata) {
 }
 
 fetchID(resultId);
+
+document.addEventListener("click", handleDocumentClick);
+function handleDocumentClick(e) {
+    const eventTarget = e.target;
+    // FavIDafterClick
+    // add the fav
+    console.log(
+        e.target.parentElement.parentElement.parentElement.parentElement
+            .children[0].children[1].children[0].children[1].children[1]
+            .innerHTML
+    );
+    if (
+        eventTarget.className === "addToFavBtn" &&
+        eventTarget.children[0].id == "adFAV"
+    ) {
+        FavIDafterClick =
+            e.target.parentElement.parentElement.parentElement.parentElement
+                .children[0].children[1].children[0].children[1].children[1]
+                .innerHTML;
+        console.log("favvvv  ", FavIDafterClick);
+        FavoriteIdArray.push(FavIDafterClick); // adding id
+        function removeDuplicates(arr) {
+            return arr.filter((item, index) => arr.indexOf(item) === index);
+        }
+        FavoriteIdArray = removeDuplicates(FavoriteIdArray);
+        localStorage.setItem(
+            "FavoriteIdArray",
+            JSON.stringify(FavoriteIdArray)
+        );
+        renderAgain();
+    }
+
+    // FavIDafterClick
+    // remove the fav
+
+    if (
+        eventTarget.className === "addToFavBtn" &&
+        eventTarget.children[0].id == "rmFAV"
+    ) {
+        FavIDafterClick =
+            e.target.parentElement.parentElement.parentElement.parentElement
+                .children[0].children[1].children[0].children[1].children[1]
+                .innerHTML;
+        removeFavArray(FavoriteIdArray, FavIDafterClick); // removing id
+
+        localStorage.setItem(
+            "FavoriteIdArray",
+            JSON.stringify(FavoriteIdArray)
+        );
+        renderAgain();
+    }
+
+    ////////////////////////////////////////////////////////////////
+    // Completed More Information PAge
+    ////////////////////////////////////////////////////////////////
+}
+
+function removeFavArray(FavoriteIdArray, heroid) {
+    FavoriteIdArray.forEach((element) => {
+        if (element == heroid) {
+            let xx = FavoriteIdArray.indexOf(element);
+            if (xx != -1) {
+                console.log("Before ", FavoriteIdArray);
+                FavoriteIdArray.splice(xx, 1);
+                console.log("After ", FavoriteIdArray);
+            }
+        }
+    });
+}
+
+//  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
+function showAddedToFav() {
+    let favBtn = document.getElementById("addtoast");
+    favBtn.className = "show";
+    setTimeout(function () {
+        favBtn.className = favBtn.className.replace("show", "");
+    }, 3000);
+}
 
 //  This is a function for displaying a alert box type message on the bottom of the screen, when we add to fav. heros.
 
@@ -111,4 +202,9 @@ function showAddedToFav2() {
     setTimeout(function () {
         favSetup.className = favSetup.className.replace("", "addtoastx show");
     }, 1500);
+}
+
+function renderAgain() {
+    superResults.innerHTML = "";
+    fetchID(resultId);
 }
