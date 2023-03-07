@@ -1,5 +1,9 @@
 # Superhero Hunter Application
 
+## Project hosted live on GitHub
+
+<a href="https://itsarraj.github.io/superHeroHunter/index.html/"><img alt="Java" src="https://img.shields.io/badge/Live Here-FF0000?style=for-the-badge&logo=java&logoColor=black"></a>
+
 ## Roadmap:
 
 ### 1.Setup project and folder structure
