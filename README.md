@@ -37,17 +37,3 @@
 ### 7.Add comments and document the code
 
 ### 8.Create a video explaining the project
-
-## Important Functions:
-
-### fetchSuperheroes(): This function will fetch superheroes from the Marvel API and display them on the Home Page. It will also be responsible for handling the search functionality and filtering the superhero list.
-
-### addToFavorites(): This function will add the selected superhero to the favorites list. It will store the favorite superheroes in the browser's local storage so that the list remains persistent.
-
-### getFavoriteSuperheroes(): This function will retrieve the list of favorite superheroes from the local storage and display them on the My Favorite Superheroes Page.
-
-### removeFavoriteSuperhero(): This function will remove the selected superhero from the favorites list and update the local storage accordingly.
-
-### fetchSuperheroDetails(): This function will fetch additional details about a selected superhero and display them on the Superhero Page.
-
-### createMD5Hash(): This function will create an MD5 hash of the timestamp, private key, and public key required for API authentication.
